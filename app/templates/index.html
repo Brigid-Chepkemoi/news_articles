@@ -11,6 +11,11 @@
     {% endif %}
 </head>
 <body>
-   <h1>HELLOOOO woRLD</h1> 
+    <h2>General News</h2>
+    <ul>
+        {%for news in general%}
+            <li style="color: black;">{{news.description}}</li>
+        {%endfor %}
+    </ul> 
 </body>
 </html>
