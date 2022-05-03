@@ -1,12 +1,22 @@
 {% import 'macros.html' as macro %}
 {% extends 'base.html' %}
 {% block content %}
-    <div class="NewsSources">
-        {% for articles in articles_results_list  %}
-        <li>{{articles.get('sources')}}</li>
-        {% endfor %}
+<div class="sources m-2">
+    <div class="card p-2">
+        <h3 class="text-uppercase headings">Top News Sources</h3>
+        <div class="row rom">
 
+
+            {% for general_news in general %}
+            <div class="col-md-2 sos">
+                <p>
+                    <a target="_blank" href="{{general_news.url }}">{{general_news.name}}</a>
+                </p>
+            </div>
+            {%endfor%}
+        </div>
     </div>
+</div>
 
     <h2>General News</h2>
     <ul>

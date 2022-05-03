@@ -10,10 +10,11 @@ def index():
     technology_news = get_news('technology')
     entertainment_news = get_news('entertainment')
     title = 'News Web'
-    return render_template('index.html',title = title,general=general_news, health=health_news, sports=sports_news, technology=technology_news,entertainment=entertainment_news)
+    articles_news = get_articles("general")
+    return render_template('index.html',title = title,general=general_news, health=health_news, sports=sports_news, technology=technology_news,entertainment=entertainment_news,articles=articles_news)
 
 @app.route('/articles')
 def articles():
-    all_sources = get_articles('general')
+    articles = get_articles('general')
     title = 'News Web'
-    return render_template('articles.html',general=all_sources,title=title)
+    return render_template('articles.html',articles=articles,title=title)
