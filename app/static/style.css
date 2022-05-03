@@ -1,0 +1,10 @@
+.bcc {
+padding-top: 4rem;
+}
+#cardimg{
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+    height: 30vh;
+    margin-bottom: 2rem;
+}

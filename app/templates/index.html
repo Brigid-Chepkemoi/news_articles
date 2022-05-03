@@ -1,4 +1,4 @@
-<!-- {% import 'macros.html' as macro %} -->
+
 {% extends 'base.html' %}
 {% block content %}
 <div class="sources m-2">
@@ -10,7 +10,7 @@
             {% for general_news in general %}
             <div class="col-md-2 sos">
                 <p>
-                    <a target="_blank" href="{{general_news.url }}">{{general_news.name}}</a>
+                    <button class="btn btn-primary news btn-sm mt-1"><a target="_blank" style="color:white" href="{{general_news.url }}">{{general_news.name}}</a></button>
                 </p>
             </div>
             {%endfor%}
@@ -18,23 +18,12 @@
     </div>
 </div>
 
-    <!-- <h2>General News</h2>
-    <ul>
-        {{macro.displayNewsList(general)}}           
-    </ul> 
-    <h2>health News</h2>
-    <ul>
-        {{macro.displayNewsList(health)}}            
-    </ul> 
-    <h2>Sports News</h2>
-    <ul>
-        {{macro.displayNewsList(sports)}}            
-    </ul> -->
+
     <div class="row bcc">
         <h2>ABC Top Headlines </h2>
         {% for abc in abc %}
         <div class="col-md-3 display">
-            <div class="card-image p-4 mb-3" style="background-image: url({{abc.urlToImage}});">
+            <div class="card-image p-4 mb-3" id="cardimg" style="background-image: url({{abc.urlToImage}});">
                 <div class="headline">
                     <h4 class="news-headings mt-2"><a target="_blank" href="{{abc.url}}">{{ abc.title}}</a>
                     </h4>
@@ -47,7 +36,7 @@
     
     <div class="row bcc">
         <h2>CNN Top Headlines </h2>
-        {% for cnn_news in cnn_news %}
+        {% for cnn_news in cnn %}
         <div class="col-md-3 display">
             <div class="card-image p-4 mb-3" style="background-image: url({{cnn_news.urlToImage}});">
                 <div class="headline">

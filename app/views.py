@@ -12,9 +12,9 @@ def index():
     articles_news = get_articles("general")
     title = 'News Web'
     abc_news = get_articles_headlines('abc-news')
-    cnn_home = get_articles_headlines('cnn')
+    cnn_news = get_articles_headlines('cnn')
     aljazeera = get_articles_headlines('al-jazeera-english')
-    return render_template('index.html',title = title,general=general_news, health=health_news, sports=sports_news, technology=technology_news,entertainment=entertainment_news,articles=articles_news,abc=abc_news,cnn=cnn_home,al_jazeera=aljazeera)
+    return render_template('index.html',title = title,general=general_news, health=health_news, sports=sports_news, technology=technology_news,entertainment=entertainment_news,articles=articles_news,abc=abc_news,cnn=cnn_news,aljazeera=aljazeera)
 
 @app.route('/articles')
 def articles():
