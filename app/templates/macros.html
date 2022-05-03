@@ -1,5 +1,16 @@
 {% macro displayNewsList(news_list) %}
-    {% for news in news_list  %}
+    
+{% for news in news_list  %}
+<div class="col-md-3 display">
+    <div class="card-image p-4 mb-3" style="background-image: url({{bcc.urlToImage}});">
+        <div class="headline">
+            <h4 class="news-headings mt-2"><a target="_blank" href="{{bcc.url}}">{{ bcc.title
+                                    }}</a>
+            </h4>
+        </div>
+    </div>
+</div>
         <li>{{news.get('description')}}</li>
+
     {% endfor %}
 {% endmacro %}
