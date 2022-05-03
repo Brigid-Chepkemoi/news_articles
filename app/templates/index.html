@@ -1,6 +1,13 @@
 {% import 'macros.html' as macro %}
 {% extends 'base.html' %}
 {% block content %}
+    <div class="NewsSources">
+        {% for articles in articles_results_list  %}
+        <li>{{articles.get('sources')}}</li>
+        {% endfor %}
+
+    </div>
+
     <h2>General News</h2>
     <ul>
         {{macro.displayNewsList(general)}}            
