@@ -2,14 +2,14 @@ from unicodedata import category
 from app import app
 from app.models.news_source import Source
 import urllib.request,json
-from app.instance.config import NEWS_API_KEY
+from app.instance.config import NEWS_API_KEY, ARTICLES_API_BASE_URl
 from app.models.news_article import Articles
+
 
 # News = Source
 # Artics = Articles
 
 base_url = app.config['NEWS_API_BASE_URL']
-articles_url = app.config['ARTICLES_API_BASE_URL']
 
 def get_news(category):
     get_news_url = base_url.format(category,NEWS_API_KEY)
@@ -41,7 +41,7 @@ def get_articles(source_id):
     '''
         Function that gets the json response to our url request using the source id
     '''
-    get_articles_url = articles_url.format(
+    get_articles_url = ARTICLES_API_BASE_URl.format(
         source_id, NEWS_API_KEY)
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
@@ -52,6 +52,7 @@ def get_articles(source_id):
         if get_articles_response['articles']:
             articles_results_list = get_articles_response['articles']
             articles_results = process_articles_results(articles_results_list)
+    print(articles_results)
     return articles_results
 
 def process_articles_results(articles_list):
@@ -68,9 +69,9 @@ def process_articles_results(articles_list):
         publishedAt = article_item.get('publishedAt')
         content = article_item.get('content')
 
-        if urlToImage:
+        if url:
             articles_object = Articles(
-                author, title, description, url, urlToImage, publishedAt, content)
+                author, title, description,url,urlToImage,publishedAt,content)
             articles_results.append(articles_object)
 
     return articles_results
