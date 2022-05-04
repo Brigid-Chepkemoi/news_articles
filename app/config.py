@@ -9,5 +9,8 @@ class ProdConfig(Config):
     pass
 
 class DevConfig(Config):
+    '''
+        Class to define the environment
+    '''
+DEBUG = True
 
-    DEBUG = True
