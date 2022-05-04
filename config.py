@@ -1,3 +1,4 @@
+import os
 from distutils.debug import DEBUG
 
 
@@ -13,4 +14,8 @@ class DevConfig(Config):
         Class to define the environment
     '''
 DEBUG = True
+config_options = {
+'development':DevConfig,
+'production':ProdConfig
+}
 

@@ -1,8 +1,9 @@
-from flask import render_template
-from app import app
-from app.request import get_articles, get_articles_headlines, get_news
+from flask import render_template,request
+from . import main
+from ..request import get_articles, get_articles_headlines, get_news
 
-@app.route('/')
+
+@main.route('/')
 def index():
     general_news = get_news('general')
     health_news = get_news('health')
@@ -16,7 +17,7 @@ def index():
     aljazeera = get_articles_headlines('al-jazeera-english')
     return render_template('index.html',title = title,general=general_news, health=health_news, sports=sports_news, technology=technology_news,entertainment=entertainment_news,articles=articles_news,abc=abc_news,cnn=cnn_news,aljazeera=aljazeera)
 
-@app.route('/articles')
+@main.route('/articles')
 def articles():
     articles = get_articles('general')
     title = 'News Web'

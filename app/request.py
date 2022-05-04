@@ -1,9 +1,9 @@
 from unicodedata import category
-from app import app
-from app.models.news_source import Source
+from . import app
+from .models import Source
 import urllib.request,json
-from app.instance.config import NEWS_API_KEY, ARTICLES_API_BASE_URl
-from app.models.news_article import Articles
+from instance.config import NEWS_API_KEY, ARTICLES_API_BASE_URl
+from .models import Articles
 
 
 # News = Source
