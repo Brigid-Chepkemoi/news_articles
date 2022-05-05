@@ -8,7 +8,7 @@
 
 A news website that consumes News API to fetch news data from various news sources and displays the articles by that sources, url to the source website and time of publishing.
 ## Live Link
-
+https://justin-news-app.herokuapp.com/
 ## Setup/Installation Requirements
 Install python 3
 Flask
